@@ -1,0 +1,7 @@
+<!-- <h1>Welcome#index</h1> -->
+<h1 class="welcome-banner">Welcome to Cookbook!</h1>
+<% if logged_in? %>
+<%= "Hi #{current_user.name}" %>! Feel free to browse recipes, or post your own! Try out other chefs' recipes, and review and rate them based on what you think!
+<% else %>
+ Cookbook is a free application for anyone who loves to cook! Whether you want to share recipes you've made or just want to try out ones from the amazing chefs at Cookbook, this is the right place for you! Sign up and join our community!
+<% end %>

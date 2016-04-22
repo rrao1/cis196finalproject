@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @recipe.ingredients %>
+</p>
+
+
+<p>
+  <strong>Chef:</strong>
+  <%= User.find(@recipe.user_id).name %>
+</p>
+<strong>Reviews</strong>
+<% if @recipe.reviews.empty? %>
+No reviews yet!
+<% else %>
+<table border = "1">
+	<tr>
+		<td>User</td>
+		<td>Review</td>
+	</tr>
+	 
+<% @recipe.reviews.each do |creview| %>
+<tr>
+	<td><%=User.find(creview.user_id).name %> </td>
+	<td><%= creview.text %></td>
+</tr>
+<% end %>
+</table>
+<% end %><br><br>
+<strong>Average Rating</strong><br>
+<%= @recipe.average_rating %><br>
+<% if logged_in? %>
+<%= link_to 'Review this recipe', "/recipes/#{@recipe.id}/reviews/new" %> |
+<%= link_to 'Rate this recipe', "/recipes/#{@recipe.id}/ratings/new" %> 
+<% if current_user.id == @recipe.user_id %>|
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> 
+<% end %>
+<% end %> |
+<%= link_to 'Back', recipes_path %>

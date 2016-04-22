@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  indrating: 1
+  user_id: 1
+  recipe_id: 1
+
+two:
+  indrating: 1
+  user_id: 1
+  recipe_id: 1

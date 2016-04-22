@@ -1,0 +1,22 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><%= @user.name %></h1>
+</p>
+
+
+<strong> Recipes:</strong>
+<% if @user.recipes.empty? %><br>
+No recipes yet!<br>
+<% else %>
+<ul><% @user.recipes.each do |crecipe| %>
+<li><%= crecipe.name %></li>
+<% end %>
+</ul>
+<% end %>
+<% if @user == current_user && logged_in? %>
+<%= link_to 'New Recipe', "/recipes/new" %> |
+<%= link_to 'Delete account', current_user, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
