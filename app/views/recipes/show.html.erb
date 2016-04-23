@@ -34,7 +34,12 @@ No reviews yet!
 </table>
 <% end %><br><br>
 <strong>Average Rating</strong><br>
-<%= @recipe.average_rating %><br>
+<% if @recipe.average_rating != nil%>
+<%= @recipe.average_rating %>
+<% else %>
+<%= 'No ratings yet!' %>
+<% end %>
+<br>
 <% if logged_in? %>
 <%= link_to 'Review this recipe', "/recipes/#{@recipe.id}/reviews/new" %> |
 <%= link_to 'Rate this recipe', "/recipes/#{@recipe.id}/ratings/new" %> 

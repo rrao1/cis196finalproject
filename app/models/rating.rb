@@ -6,7 +6,9 @@ class Rating < ActiveRecord::Base
   validate :existing
 
   def range
-    errors.add(:indrating, 'Must rate from 1 to 10!') if indrating < 1 || indrating > 10
+    if indrating < 1 || indrating > 10
+      errors.add(:indrating, 'Must rate from 1 to 10!')
+    end
   end
 
   def existing

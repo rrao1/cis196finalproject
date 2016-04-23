@@ -28,14 +28,14 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     respond_to do |format|
       if @recipe.save
-        format.html do redirect_to @recipe, notice:
-          'Recipe was successfully created.'
+        format.html do
+          redirect_to @recipe, notice: 'Recipe was successfully created.'
         end
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }
-        format.json do render json: @recipe.errors,
-          status: :unprocessable_entity
+        format.json do
+          render json: @recipe.errors, status: :unprocessable_entity
         end
       end
     end
@@ -46,13 +46,14 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice:
-          'Recipe was successfully updated.' }
+        format.html do
+          redirect_to @recipe, notice: 'Recipe was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit }
-        format.json do render json: @recipe.errors, status:
-          :unprocessable_entity
+        format.json do
+          render json: @recipe.errors, status: :unprocessable_entity
         end
       end
     end

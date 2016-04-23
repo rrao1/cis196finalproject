@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module Thecookbook
+  # Application class in config
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those
     # specified here.

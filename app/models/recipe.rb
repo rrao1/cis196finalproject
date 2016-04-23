@@ -13,10 +13,6 @@ class Recipe < ActiveRecord::Base
       sum += rating.indrating
       count += 1
     end
-    if sum != 0
-      sum / count
-    else
-      'No ratings yet!'
-    end
+    sum / count if sum != 0
   end
 end
