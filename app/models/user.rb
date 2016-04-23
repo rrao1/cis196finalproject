@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :name, length: { minimum: 2 }
   validate :name_check
   has_many :recipes, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   include BCrypt
 
   def password
