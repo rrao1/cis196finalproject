@@ -10,7 +10,7 @@ gem 'sass-rails'
 gem 'jquery-rails'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
@@ -63,7 +63,12 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a
   # debugger console
+  gem 'sqlite3'
   gem 'byebug'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # group :development do
