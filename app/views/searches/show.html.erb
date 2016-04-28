@@ -4,11 +4,12 @@
   <strong>Ingredient:</strong>
   <%= @search.keyword %>
 </p>
-<% plural = @search.keyword.pluralize(2) %>
+<% plural = @search.keyword.pluralize(2).downcase %>
+<% single = @search.keyword.pluralize(1).downcase %>
 <% counter = 0 %>
 <% Recipe.all.each do |recipe| %>
 	
-	<% if recipe.ingredients.include?(@search.keyword) || recipe.ingredients.include?(plural)%>
+	<% if recipe.ingredients.downcase.include?(single) || recipe.ingredients.include?(plural)%>
 	<% counter += 1 %>
 	<%= link_to "#{recipe.name}", "/recipes/#{recipe.id}" %><br>
 	<% end %>
