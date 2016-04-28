@@ -2,6 +2,9 @@
 class Recipe < ActiveRecord::Base
   validates :ingredients, presence: true
   validates :ingredients, length: { minimum: 5 }
+  validates :directions, presence: true
+  validates :directions, length: { minimum: 5 }
+  validates :name, presence: true
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :ratings, dependent: :destroy

@@ -2,12 +2,14 @@
 class Rating < ActiveRecord::Base
   belongs_to :crecipe
   validates :indrating, presence: true
-  validate :range
+  # validate :range
+  validates :indrating, :inclusion => {:in => [1, 10]}
   validate :existing
 
   def range
     if indrating < 1 || indrating > 10
-      errors.add(:indrating, 'Must rate from 1 to 10!')
+      # errors.add(:indrating, 'Must rate from 1 to 10!')
+      redirect_to "/recipes/#{recipe_id}/ratings/new", notice: 'Recipe was successfully created.'
     end
   end
 
