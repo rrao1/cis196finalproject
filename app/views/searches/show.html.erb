@@ -9,7 +9,7 @@
 <% counter = 0 %>
 <% Recipe.all.each do |recipe| %>
 	
-	<% if recipe.ingredients.downcase.include?(single) || recipe.ingredients.include?(plural)%>
+	<% if recipe.ingredients.downcase.include?(single) || recipe.ingredients.downcase.include?(plural)%>
 	<% counter += 1 %>
 	<%= link_to "#{recipe.name}", "/recipes/#{recipe.id}" %><br>
 	<% end %>
